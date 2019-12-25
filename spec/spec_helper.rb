@@ -1,9 +1,14 @@
 require 'webmock/rspec'
+require 'capybara/rspec'
 WebMock.disable_net_connect!(allow_localhost: true)
 require File.expand_path("../../config/environment", __FILE__)
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
 RSpec.configure do |config|
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+  
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
