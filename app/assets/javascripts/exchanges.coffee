@@ -4,12 +4,13 @@ $(document).ready ->
     value = $(this).val()
     source_currency = $("#source_currency").val()
     target_currency = $("#target_currency").val()
-    console.log(value)
-    if value != "" && target_currency != "BITCOIN"
+
+    if source_currency == "BITCOIN"
+      ajax_bitcoin(value, target_currency)
+    else if target_currency != "BITCOIN"
       ajax_currency(value)
     else
       ajax_bitcoin(value, source_currency)
-
 
   $("#reverse").click (event) ->
     event.preventDefault()
@@ -38,6 +39,7 @@ $(document).ready ->
     return false;
 
   ajax_bitcoin = (value, currency) ->
+    # https://www.blockchain.com/pt/api/exchange_rates_api
     $.ajax 'https://blockchain.info/tobtc?currency='+currency+'&value='+value,
       type: 'GET'
       error: (jqXHR, textStatus, errorThrown) ->
