@@ -4,9 +4,9 @@
     border: 0;
  
     .card-header{
-      background-color: #878d99;
+      background-color: #dddddd;
       border-radius: 0;
-      color: white;
+      color: rgb(75, 75, 75);
       font-weight: 700;
     }
  
@@ -15,14 +15,21 @@
       padding: 20px;
  
       .title{
-        color: #878d99;
+        color:rgb(75, 75, 75);
         font-weight: 700;
       }
  
       .btn-exchange{
-        background-color: #5bc0de;
-        border-color: #5bc0de;
+        background-color: #991cff;
+        border-color: #991cff;
         border-radius: 0;
+      }
+
+      .btn-reverse {
+        background-color: #1c82ff;
+        border-color: #1c82ff;
+        border-radius: 0;
+        color: white;
       }
     }
   }
